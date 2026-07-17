@@ -39,7 +39,7 @@ dm = (m_max - m_min) / 2
 
 plt.scatter(x,y,color='blue', label="points")
 plt.errorbar(x, y, yerr=yerr, fmt='none', ecolor='black', capsize=3,)
-plt.plot(x, m*x + c, color='blue', lw = 2, label=f'Best fit ($R^2$ = {r2:.4f})')
+plt.plot(x, m*x + c, color='blue', lw = 2, label=f'Best fit: $y = {m:.3f}x + {c:.1f}$ ($R^2$ = {r2:.4f})')
 plt.plot(x, m_max*x + c_max, color='red', lw = 1, ls='--', label='Worst fit1')
 plt.plot(x, m_min*x + c_min, color='green', lw = 1, ls='--', label='Worst fit2')
 
