@@ -52,7 +52,7 @@ ax.grid(which='major', lw=0.8)
 ax.grid(which='minor', lw=0.3, alpha=0.5)
 ##fine minor grid (1 K x 1 uT) so worst fit can be read off manually
 plt.legend()
-plt.xlabel('Temperature ºK')
+plt.xlabel('Temperature ºC')
 plt.ylabel('Mean Magnetic Flux Density µT')
 plt.title('Mean Magnetic Flux Density vs Temperature')
 plt.show()
