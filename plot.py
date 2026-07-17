@@ -19,8 +19,8 @@ readings = np.array([
 ##5 repeat readings per temperature
 
 y = readings.mean(axis=1)
-yerr = readings.std(axis=1, ddof=1)
-##error bar = sample standard deviation of the repeats
+yerr = readings.std(axis=1, ddof=1) / np.sqrt(readings.shape[1])
+##error bar = standard error of the mean (sample SD / sqrt(n))
 
 (m, c), cov = np.polyfit(x,y,1, cov=True)
 #returns (m, b) @ deg order 1
