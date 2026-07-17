@@ -37,11 +37,11 @@ dm = (m_max - m_min) / 2
 ##worst fits: steepest/shallowest lines through the first and last error bars
 ##dm = half the spread between the two worst-fit gradients
 
-plt.scatter(x,y,color='blue', label="points")
+plt.scatter(x,y,color='blue')
 plt.errorbar(x, y, yerr=yerr, fmt='none', ecolor='black', capsize=3,)
 plt.plot(x, m*x + c, color='blue', lw = 2, label=f'Best fit: $y = {m:.3f}x + {c:.1f}$ ($R^2$ = {r2:.4f})')
-plt.plot(x, m_max*x + c_max, color='red', lw = 1, ls='--', label='Worst fit1')
-plt.plot(x, m_min*x + c_min, color='green', lw = 1, ls='--', label='Worst fit2')
+plt.plot(x, m_max*x + c_max, color='red', lw = 1, ls='--')
+plt.plot(x, m_min*x + c_min, color='green', lw = 1, ls='--')
 
 ax = plt.gca()
 ax.xaxis.set_major_locator(MultipleLocator(5))
