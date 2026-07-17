@@ -26,6 +26,9 @@ yerr = readings.std(axis=1, ddof=1)
 #returns (m, b) @ deg order 1
 #m, b means cmd[0], cmd[1]
 
+r2 = 1 - np.sum((y - (m*x + c))**2) / np.sum((y - y.mean())**2)
+##coefficient of determination of the best fit
+
 m_max = ((y[-1] + yerr[-1]) - (y[0] - yerr[0])) / (x[-1] - x[0])
 m_min = ((y[-1] - yerr[-1]) - (y[0] + yerr[0])) / (x[-1] - x[0])
 c_max = (y[0] - yerr[0]) - m_max*x[0]
@@ -35,8 +38,8 @@ dm = (m_max - m_min) / 2
 ##dm = half the spread between the two worst-fit gradients
 
 plt.scatter(x,y,color='blue', label="points")
-plt.errorbar(x, y, yerr=yerr, fmt='none', ecolor='black', capsize=3, label='uncertainty')
-plt.plot(x, m*x + c, color='blue', lw = 2, label='Best fit')
+plt.errorbar(x, y, yerr=yerr, fmt='none', ecolor='black', capsize=3,)
+plt.plot(x, m*x + c, color='blue', lw = 2, label=f'Best fit ($R^2$ = {r2:.4f})')
 plt.plot(x, m_max*x + c_max, color='red', lw = 1, ls='--', label='Worst fit1')
 plt.plot(x, m_min*x + c_min, color='green', lw = 1, ls='--', label='Worst fit2')
 
@@ -51,6 +54,6 @@ ax.grid(which='minor', lw=0.3, alpha=0.5)
 plt.legend()
 plt.xlabel('Temperature ºK')
 plt.ylabel('Magnetic Flux Density µT')
-plt.title('Processed Graph')
+plt.title('Magnetic Flux Density vs Temperature')
 plt.show()
 
