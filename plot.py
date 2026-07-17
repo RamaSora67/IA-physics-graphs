@@ -39,7 +39,7 @@ dm = (m_max - m_min) / 2
 
 plt.scatter(x,y,color='blue')
 plt.errorbar(x, y, yerr=yerr, fmt='none', ecolor='black', capsize=3,)
-plt.plot(x, m*x + c, color='blue', lw = 2, label=f'Best fit: $y = {m:.3f}x + {c:.1f}$ ($R^2$ = {r2:.4f})')
+plt.plot(x, m*x + c, color='blue', lw = 2, label=f'Best fit: $B = {m:.3f}T + {c:.1f}$ ($R^2$ = {r2:.4f})')
 plt.plot(x, m_max*x + c_max, color='red', lw = 1, ls='--')
 plt.plot(x, m_min*x + c_min, color='green', lw = 1, ls='--')
 
@@ -53,7 +53,7 @@ ax.grid(which='minor', lw=0.3, alpha=0.5)
 ##fine minor grid (1 K x 1 uT) so worst fit can be read off manually
 plt.legend()
 plt.xlabel('Temperature ºC')
-plt.ylabel('Mean Magnetic Flux Density µT')
-plt.title('Mean Magnetic Flux Density vs Temperature')
+plt.ylabel('Mean Magnetic Flux Density µT (B)')
+plt.title('Mean Magnetic Flux Density vs Temperature (T)')
 plt.show()
 
